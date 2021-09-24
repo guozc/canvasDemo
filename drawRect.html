@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>在线画矩形</title>
+  <style>
+    body {
+      text-align: center;
+    }
+
+    canvas {
+      border: 1px solid #000;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas width="600" height="600"></canvas>
+
+  <script>
+    var cas = document.querySelector("canvas");
+    var ctx = cas.getContext("2d");
+
+    // 按下的坐标
+    var startX=0;
+    var startY=0;
+    // 鼠标按下
+    cas.addEventListener("mousedown",function (e) {
+      startX=e.offsetX;
+      startY=e.offsetY;
+
+      // 重新开启路径!! 
+      ctx.beginPath();
+    });
+
+    // 鼠标抬起
+    cas.addEventListener("mouseup",function (e) {
+      var endX=e.offsetX;
+      var endY=e.offsetY;
+
+      // 矩形的宽度和高度
+      var w=endX-startX;
+      var h=endY-startY;
+
+      ctx.strokeRect(startX,startY,w,h);    
+    })
+  </script>
+</body>
+
+</html>

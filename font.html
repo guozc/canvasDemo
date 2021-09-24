@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>艺术文字</title>
+  <style>
+    body {
+      text-align: center;
+    }
+
+    canvas {
+      border: 1px solid #000;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas width="600" height="600"></canvas>
+</body>
+<script>
+  var cas = document.querySelector("canvas");
+  var ctx = cas.getContext("2d");
+
+  ctx.font = "50px Arial";
+
+  var g = ctx.createLinearGradient(0, 0, 600, 0);
+  g.addColorStop(0, "red");
+  g.addColorStop(0.5, "yellow");
+  g.addColorStop(1, "black");
+
+  ctx.fillStyle = g;
+  ctx.fillText("床前明月光", 150, 200);
+  ctx.fillText("疑是地上霜", 150, 300);
+</script>
+
+</html>
